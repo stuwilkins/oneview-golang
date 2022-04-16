@@ -395,6 +395,10 @@ func (c *OVClient) GetServerHardwareList(filters []string, sort string) (ServerH
 		q["sort"] = sort
 	}
 
+	q["expand"] = "all"
+	q["start"] = "0"
+	q["count"] = "99999"
+
 	// refresh login
 	c.RefreshLogin()
 	c.SetAuthHeaderOptions(c.GetAuthHeaderMap())
